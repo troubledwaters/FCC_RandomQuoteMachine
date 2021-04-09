@@ -5,6 +5,7 @@ const concat = require('gulp-concat');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
 // const static = require('node-static');
 
 
@@ -37,6 +38,9 @@ gulp.task('js', function(){
     return (
         gulp.src('src/js/**/*.*')
             .pipe(concat('main.js'))
+            .pipe(babel({
+                presets: ['@babel/env']
+            }))
             .pipe(gulp.dest('public'))
     )
 
@@ -44,7 +48,8 @@ gulp.task('js', function(){
 
 gulp.task('watch', function (){
     gulp.watch('src/styles/**/*.*', gulp.series('styles'))    
-    gulp.watch('src/assets/**/*.*', gulp.series('assets'))    
+    gulp.watch('src/assets/**/*.*', gulp.series('assets')) 
+    gulp.watch('src/js/**/*.*', gulp.series('js'))    
 });
 
 gulp.task('serve', function(){
