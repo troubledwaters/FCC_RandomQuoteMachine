@@ -1,7 +1,6 @@
 {
   "name": "game",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,13 +8,29 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "gulp-babel": "^8.0.0",
     "gulp-sass": "^4.1.0",
     "node-sass": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troubledwaters/FCC_RandomQuoteMachine.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/troubledwaters/FCC_RandomQuoteMachine/issues"
+  },
+  "homepage": "https://github.com/troubledwaters/FCC_RandomQuoteMachine#readme",
+  "description": ""
 }
