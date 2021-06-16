@@ -29,11 +29,11 @@ class QuoteMachine extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.getRandomQuote = this.getRandomQuote.bind(this);
-        this.getRandomColor = this.getRandomColor.bind(this);
+        this.setRandomQuote = this.setRandomQuote.bind(this);
+        this.setRandomColor = this.setRandomColor.bind(this);
         this.changeQuote = this.changeQuote.bind(this);
     }
-    getRandomQuote() {
+    setRandomQuote() {
         let cureentQuoteIndex = quotes.findIndex((el, i, arr) => {
             return el.quote === this.state.quote
         });
@@ -70,15 +70,20 @@ class QuoteMachine extends React.Component {
             )
         })
     }
-    getRandomColor() {
-        let rand = Math.floor(Math.random() * (colors.length));
+    setRandomColor() {
+        let cureentColorIndex = colors.findIndex((el, i, arr) => {
+            return el === this.state.color
+        });
+        let newColors = colors.slice();
+        newColors.splice(cureentColorIndex, 1);
+        let rand = Math.floor(Math.random() * (newColors.length));
         this.setState({
-            color: colors[rand]
+            color: newColors[rand]
         })
     }
     changeQuote() {
-        this.getRandomQuote();
-        this.getRandomColor();
+        this.setRandomQuote();
+        this.setRandomColor();
     }
     componentDidMount() {
         this.changeQuote();
